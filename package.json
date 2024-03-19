@@ -1,5 +1,15 @@
 {
+  "scripts": {
+    "test": "cypress run",
+    "cypress:open": "cypress open"
+  },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "cross-env": "^7.0.3",
     "cypress": "^13.7.0"
+  },
+  "dependencies": {
+    "crossenv": "^0.0.2-security",
+    "dotenv": "^16.4.5"
   }
 }
