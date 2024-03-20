@@ -33,3 +33,4 @@ Cypress.Commands.add("login", (username, password) => {
   cy.get('input[id="field-login-password"]').type(password);
   cy.get('input[id="field-login-loginSubmit"]').click();
 });
+
