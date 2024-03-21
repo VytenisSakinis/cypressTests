@@ -1,5 +1,6 @@
 import faker from "@faker-js/faker";
 
+
 Cypress.Commands.add("createContact", (contact, failonstatuscode) => {
   if (failonstatuscode === undefined) failonstatuscode = true;
   const response = cy.request({
@@ -76,11 +77,13 @@ Cypress.Commands.add("GETContacts", (limit, email, failonstatuscode = true) => {
   return response;
 });
 
-Cypress.Commands.add("PATCHContact", (contact, email, failonstatuscode) => {
+Cypress.Commands.add("PATCHContact", (contact, contactID, failonstatuscode) => {
   if (failonstatuscode === undefined) failonstatuscode = true;
+
+
   const response = cy.request({
-    method: "PATH",
-    url: searchByEmail,
+    method: "PATCH",
+    url: `https://api.omnisend.com/v3/contacts/${contactID}`,
     body: contact,
     headers: {
       "X-API-KEY": Cypress.env("API_KEY"),
