@@ -24,13 +24,23 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("goTo", (path) => {
+import { Response } from 'cypress';
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      goTo(path: string): void;
+      login(username: string, password: string): void;
+    }
+  }
+}
+
+Cypress.Commands.add("goTo", (path: string) => {
   cy.visit(`${Cypress.env("url")}${path}`);
 });
 
-Cypress.Commands.add("login", (username, password) => {
+Cypress.Commands.add("login", (username: string, password: string) => {
   cy.get('input[id="field-login-login"]').type(username);
   cy.get('input[id="field-login-password"]').type(password);
   cy.get('input[id="field-login-loginSubmit"]').click();
 });
-

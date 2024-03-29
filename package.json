@@ -6,8 +6,10 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@types/jest": "^29.5.12",
     "cross-env": "^7.0.3",
-    "cypress": "^13.7.0"
+    "cypress": "^13.7.0",
+    "typescript": "^5.4.3"
   },
   "dependencies": {
     "crossenv": "^0.0.2-security",

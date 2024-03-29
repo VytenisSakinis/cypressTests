@@ -21,7 +21,6 @@ describe("API Contacts spec", () => {
 
     return contact;
   }
-
   const userData = {
     email: faker.internet.exampleEmail(),
     firstName: faker.person.firstName("female"),
@@ -78,16 +77,17 @@ describe("API Contacts spec", () => {
     });
   });
   it("Should be able to update the contact", () => {
+    const newContact = createContact(
+      userData.firstName,
+      userData.lastName,
+      keepGeneratedEmail.toLowerCase(),
+      "f"
+    )
     cy.PATCHContact(
-      createContact(
-        userData.firstName,
-        userData.lastName,
-        keepGeneratedEmail.toLowerCase()
-      ),
-      keepContactID,
-      false
+      newContact,
+      keepContactID
     ).then((response) => {
-      expect(response.status).eql(200);
+      expect(response.status).to.equal(200);
     });
   });
 });

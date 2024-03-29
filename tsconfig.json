@@ -1,13 +1,12 @@
-{
+
+  {
     "compilerOptions": {
-      "lib": ["es2015", "dom"],
-      "allowJs": true,
-      "noEmit": true,
-      "types": [
-        "cypress"
-      ]
+      "target": "es5",
+      "lib": ["es5", "dom"],
+      "types": ["cypress", "node"]
     },
-    "include": [
-      "cypress/**/*.js"
-    ]
-}
+    "include": ["**/*.ts"],
+    "cypress/support/api-commands.ts": "cypress/e2e/api/contacts.cy.ts",
+  }
+
+    
